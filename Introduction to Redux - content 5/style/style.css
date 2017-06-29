@@ -1,0 +1,35 @@
+.sidebar-image{
+  width: 50px;
+}
+
+.media{
+  cursor: pointer;
+}
+
+.media-heading{
+
+}
+
+.news_details{
+  text-align: center;
+}
+
+.news_details img{
+  padding : 2em;
+}
+
+.details p{
+  padding: 1em;
+}
+
+.author{
+  padding-bottom: 1em;
+}
+
+.row{
+  padding : 2em;
+}
+
+.sidebar-news{
+  padding-right: 1em;
+}
