@@ -5,14 +5,16 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 
-import {fetchTypes, fetchStatus, fetchTodos, fetchTotalTasks, createTodo} from '../actions';
+import {fetchTypes, fetchStatus, fetchTodos, createTodo} from '../actions';
 
 class NewTaskForm extends Component{
+  //Method to load redux state after all component was mounted
   componentDidMount(){
     this.props.fetchTypes();
     this.props.fetchStatus();
   }
 
+  //Method to render all type options inside type dropdownlist
   renderTypes(){
     return _.map(this.props.types, type => {
       return(
@@ -21,6 +23,7 @@ class NewTaskForm extends Component{
     });
   }
 
+  //Method to render all status options inside type dropdownlist
   renderStatus(){
     return _.map(this.props.status, status => {
       return(
@@ -29,6 +32,7 @@ class NewTaskForm extends Component{
     });
   }
 
+  //Method to render a generic input text field using redux-form and validation
   renderField(field){
     var className = 'form-group';
 
@@ -54,14 +58,44 @@ class NewTaskForm extends Component{
     );
   }
 
+  //Method to render a generic input number field using redux-form and validation
+  renderNumberField(field){
+    var className = 'form-group';
+
+    if(field.meta.touched && field.meta.error){
+      className += ' has-danger';
+    }
+    else{
+      className += '';
+    }
+
+    return(
+      <div className={className}>
+        <label>{field.labelToShow}</label>
+        <input
+          className="form-control"
+          type="number"
+          min={field.min}
+          max={field.max}
+          {...field.input}
+        />
+
+        <div className="text-help">
+          {field.meta.touched ? field.meta.error : ''}
+        </div>
+      </div>
+    );
+  }
+
+  //Method when the form is submitted
   onSubmit(values){
+    console.log(values);
     this.props.createTodo(values, () => {
       this.props.fetchTodos();
-      this.props.fetchTotalTasks();
-      
     });
   }
 
+  //Method to render the component on browser
   render(){
     const {handleSubmit} = this.props;
 
@@ -81,8 +115,13 @@ class NewTaskForm extends Component{
           component={this.renderField}
         />
 
-        <label>Priority:</label>
-        <Field name="priority" component="input" type="number" value="1" min="1" max="5" className="form-control"/>
+        <Field
+          labelToShow="priority:"
+          name="priority"
+          min="1"
+          max="5"
+          component={this.renderNumberField}
+        />
 
         <label>Type task:</label>
         <Field name="type_id" component="select" className="form-control">
@@ -95,8 +134,8 @@ class NewTaskForm extends Component{
         </Field>
 
         <div className="pull-xs-right">
-          <button type="submit" className="btn btn-primary">Add task</button>
-          <Link to="/todos" className="btn btn-danger">Cancel</Link>
+          <button type="submit" className="btn btn-primary form-button">Add task</button>
+          <input type="reset" className="btn btn-danger form-button" value="Cancel"/>
         </div>
       </form>
       </div>
@@ -104,6 +143,7 @@ class NewTaskForm extends Component{
   }
 }
 
+//Method used for redux-form to validate all form values
 function validate(values){
   const errors = {};
 
@@ -118,16 +158,18 @@ function validate(values){
     errors.priority = "Enter a priority for your task, please.";
   }
 
-  if(!values.type){
-    errors.type = "Enter a type for your task, please.";
+  if(!values.type_id){
+    errors.type_id = "Enter a type for your task, please.";
   }
 
-  if(!values.status){
-    errors.status = "Enter a status for your task, please.";
+  if(!values.status_id){
+    errors.status_id = "Enter a status for your task, please.";
   }
+
   return errors;
 }
 
+//Method to map all state properties with component props
 function mapStateToProps(state){
   return {
     types : state.types,
@@ -135,10 +177,12 @@ function mapStateToProps(state){
   };
 }
 
+//Method to dispatch actions with component props
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({fetchTypes, fetchStatus, fetchTodos, fetchTotalTasks, createTodo},dispatch);
+  return bindActionCreators({fetchTypes, fetchStatus, fetchTodos, createTodo},dispatch);
 }
 
+//Special connect to redux with redux form included
 export default reduxForm({
     validate : validate,
     form : 'TodoNewForm' //has to be unique

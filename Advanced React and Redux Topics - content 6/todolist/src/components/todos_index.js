@@ -7,9 +7,9 @@ class TodosIndex extends Component{
   render(){
     return (
       <div>
-      <Jumbotron title="TODO List Application"/>
-      <NewTaskForm/>
-      <TodoList/>
+        <Jumbotron title="TODO List Application"/>
+        <NewTaskForm/>
+        <TodoList/>
       </div>
     );
   }

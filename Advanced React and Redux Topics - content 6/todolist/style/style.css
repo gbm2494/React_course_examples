@@ -1,9 +1,5 @@
-form a{
-  margin-left: 5px;
-  margin-top: 1em;
-}
-
-form button{
+/*Styles for newTaskForm.js*/
+form .form-button{
   margin-left: 5px;
   margin-top: 1em;
 }
@@ -16,17 +12,17 @@ form button{
   margin-left: 5em;
 }
 
+/*Styles for todo_list.js*/
 .todoItem{
-  width: 100%;
-  height: 5.5em;
-  border-radius: 0.3em;
+  width: 80%;
+  height: 5.0em;
   margin-bottom: 1em;
   box-shadow: 10px 10px 5px #888888;
   cursor: pointer;
 }
 
 .priority{
-  margin-top: 0.5em;
+  margin-top: 0.1em;
 }
 
 .information{
@@ -34,19 +30,19 @@ form button{
 }
 
 .School{
-  background-color: #FEC0EE;
+  background-color: #FFD2F3;
 }
 
 .Personal{
-  background-color: #98F0FC;
+  background-color: #CCF9FF;
 }
 
 .Work{
-  background-color: #FFC300;
+  background-color: #F7F7C6;
 }
 
 .Home{
-  background-color: #AAF48C;
+  background-color: #C5FFAD;
 }
 
 .instructions{
@@ -66,7 +62,33 @@ form button{
   color: blue;
   cursor: pointer;
   width: 4%;
-  background-color: #52A0FE;
+  background-color: #2387FF;
   color: #ffffff;
-  border-radius: 0.2em;
+}
+
+/*Styles for todo_show.js*/
+.todo_show div{
+  display : block;
+}
+
+.todo_show{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.todo_show .btn-1{
+  margin-left: -0.3em;
+  margin-top: 2em;
+}
+
+.todo_show .btn-2{
+  margin-left: 4em;
+  margin-top: 2em;
+}
+
+.todo_details{
+  width:40%;
+  box-shadow: 10px 10px 5px #888888;
+  text-align: center;
+  margin: 0 auto;
 }

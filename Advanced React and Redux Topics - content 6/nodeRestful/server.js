@@ -75,19 +75,6 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/api/total_tasks',
-    handler: function (request, reply) {
-       connection.query('SELECT count(*) as total FROM todo_item',
-       function (error, results, fields) {
-       if (error) throw error;
-
-       reply(results);
-    });
-  }
-});
-
-server.route({
-    method: 'GET',
     path:'/helloworld',
     handler: function (request, reply) {
     return reply('hello world');
@@ -119,11 +106,11 @@ server.route({
     handler: function (request, reply) {
     const todoID = request.params.todoid;
 
-    connection.query('SELECT * FROM todo_item WHERE task_id = "' + todoID + '"',
+    connection.query('Select todo_item.name, todo_item.description, todo_item.task_id, todo_item.priority,  status_task.name as status, type_task.name as type from todo_item, status_task, type_task where status_task.id = todo_item.status_id AND type_task.id = todo_item.type_id AND task_id = "' + todoID + '"',
     function (error, results, fields) {
        if (error) throw error;
 
-       reply(results);
+       reply(results[0]);
 });
 }
 });
@@ -138,11 +125,7 @@ server.route({
     function (error, results, fields) {
        if (error) throw error;
 
-       if (result.affectedRows) {
-           reply(true);
-       } else {
-           reply(false);
-       }
+       reply(results);
 });
 }
 });
