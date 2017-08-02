@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-/*export default class Counter extends Component {
+class Counter extends Component {
 	constructor(props){
 		super(props);
 		this.state={value : 0};
@@ -19,9 +19,9 @@ import React, { Component } from 'react';
   this.setState({ value: this.state.value + 1 })
   }
 }
-*/
 
-const List = function(props){
+
+/*const List = function(props){
   return(
     <div>
     <h1>Technologies {props.name} have learned</h1>
@@ -37,6 +37,6 @@ const List = function(props){
       </ul>
     </div>
   );
-}
+}*/
 
-export default List;
+export default Counter;

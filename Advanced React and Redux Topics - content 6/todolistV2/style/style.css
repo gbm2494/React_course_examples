@@ -1,0 +1,94 @@
+/*Styles for newTaskForm.js*/
+form .form-button{
+  margin-left: 5px;
+  margin-top: 1em;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.form-style{
+  margin-left: 5em;
+}
+
+/*Styles for todo_list.js*/
+.todoItem{
+  width: 80%;
+  height: 5.0em;
+  margin-bottom: 1em;
+  box-shadow: 10px 10px 5px #888888;
+  cursor: pointer;
+}
+
+.priority{
+  margin-top: 0.1em;
+}
+
+.information{
+  margin-top: 0.5em;
+}
+
+.School{
+  background-color: #FFD2F3;
+}
+
+.Personal{
+  background-color: #CCF9FF;
+}
+
+.Work{
+  background-color: #F7F7C6;
+}
+
+.Home{
+  background-color: #C5FFAD;
+}
+
+.instructions{
+  width: 20%;
+  height: 1.5em;
+  text-align: center;
+  margin-bottom: 2em;
+  display: inline-block;
+}
+
+#page-numbers {
+  display: flex;
+}
+
+#page-numbers > div {
+  text-align: center;
+  color: blue;
+  cursor: pointer;
+  width: 4%;
+  background-color: #2387FF;
+  color: #ffffff;
+}
+
+/*Styles for todo_show.js*/
+.todo_show div{
+  display : block;
+}
+
+.todo_show{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.todo_show .btn-1{
+  margin-left: -0.3em;
+  margin-top: 2em;
+}
+
+.todo_show .btn-2{
+  margin-left: 4em;
+  margin-top: 2em;
+}
+
+.todo_details{
+  width:40%;
+  box-shadow: 10px 10px 5px #888888;
+  text-align: center;
+  margin: 0 auto;
+}

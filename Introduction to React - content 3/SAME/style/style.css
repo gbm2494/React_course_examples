@@ -1,0 +1,45 @@
+.box{
+    float: left;
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0;
+    cursor: pointer;
+    position : absolute;
+    border : 0.05em solid black;
+    border-radius: 3em;
+}
+
+.number1{
+  background-color: red;
+}
+
+.number2{
+  background-color: blue;
+}
+
+.number3{
+  background-color: yellow;
+}
+.number4{
+  background-color: green;
+}
+
+.number5{
+  background-color: #FE8787;
+}
+
+.number0{
+  background-color: #ffffff;
+  border: none;
+}
+
+.game-over{
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  border : 0.05em solid red;
+  border-radius: 2em;
+  width :50%;
+  height: 40%;
+  text-align: center;
+}
