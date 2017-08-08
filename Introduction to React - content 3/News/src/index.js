@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import data from './data/data.js';
 import NewsList from './components/news_list';
 import NewsDetail from './components/news_detail';
 //import App from './components/app';
-import List from './components/app';
 
 class App extends Component{
   constructor(props){
